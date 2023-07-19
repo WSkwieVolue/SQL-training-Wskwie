@@ -14,7 +14,7 @@ select FirstName as FN, MiddleName as Middle, LastName from Person.Person
 -- Write a query that will select all departments from schema HumanResources
 
 -- [Ex. 1.2]
--- Write a query that will select only currency codes from schema currency
+-- Write a query that will select only currency codes from schema sales and table currency
 
 -- [Ex. 1.3]
 -- Write a query that will select password hash from schema Person but name the column 'Some random letters'

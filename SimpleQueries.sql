@@ -3,7 +3,7 @@
 --This script should not be executed as a whole
 RAISERROR ('Oooopsie. This file should not be executed this way ;).',20,-1) with log
 
-----------------------------------------
+---------------------------------------- SIMPLE SELECT
 -- SELECT <columns names or asterix> FROM <schema name>.<table name>
 
 select * from DatabaseLog
@@ -19,7 +19,7 @@ select FirstName as FN, MiddleName as Middle, LastName from Person.Person
 -- [Ex. 1.3]
 -- Write a query that will select password hash from schema Person but name the column 'Some random letters'
 
-----------------------------------------
+---------------------------------------- SELECT WITH CONDITION
 -- SELECT <column names> FROM <schema name>.<table name> WHERE <Condition>
 
 select * from Person.Person where FirstName = 'bob' 
@@ -40,8 +40,8 @@ select * from Production.Product where ListPrice > 1000 and Color = 'Red'
 -- select all people with a letter 'h' in their last name. 
 -- Try to use 'like' instead of '=' and '%' as a wildcard for letters before and after the letter 'h'
 
-----------------------------------------
--- SELECT TOP <Number> <column names> from [schema name>.[table name> 
+---------------------------------------- ORDERING AND LIMITING
+-- SELECT TOP <Number> <column names> from [schema name>.<table name> 
 -- ORDER BY <column names with directions>
 
 -- SELECT <column names> from <schema name>.<table name> 
@@ -73,7 +73,7 @@ select distinct FirstName, MiddleName from Person.Person
 --[Ex. 3.3]
 -- Select all distinct cities from adrressed in schema Person
 
-----------------------------------------
+---------------------------------------- INSERTING NEW VALUES
 -- INSERT INTO <schema name>.<table name> (<column names>) values (<values that should be inserted>)
 
 INSERT INTO Sales.Currency ([CurrencyCode] ,[Name] ,[ModifiedDate]) 
@@ -96,7 +96,7 @@ values ('QQQ', 'Some currency', '2023-07-20 00:00:00.000'),
 --[Ex. 4.2]
 -- Add new record to Sales.Person but only specify values for column that are non-nullable
 
-----------------------------------------
+---------------------------------------- UPDATING EXISTING VALUES
 -- UPDATE <schema name>.<table name>
 -- set <column name> <new values>
 -- where <condition>
@@ -116,7 +116,7 @@ where EmailAddressID = 1
 -- [Ex. 5.2]
 -- Write a query that will change the full name of every 'David' to 'Mr. David Bowie Jr.'
 
-----------------------------------------
+---------------------------------------- DELETING DATA
 -- DELETE FROM <schema name>.<table name>
 -- WHERE <condition>
 
@@ -130,7 +130,7 @@ where AddressLine1 = 'AddressLine1'
 -- Delete all currencies that were added today with insert queries (but do not delete any other currency :] )
 
 
-----------------------------------------
+---------------------------------------- JOINING TABLES
 -- SELECT <Column names> from <schema1 name>.<table1 name> <table1 alias>
 -- <Join types] JOIN <schema2 name>.<table2 name> <table2 alias>
 
@@ -156,6 +156,23 @@ right join Production.ProductModel pm on pm.ProductModelID = p.ProductModelID
 
 --[Ex. 7.3]
 -- Write a query that will display a persons name and his credit card number (use join two times)
+
+
+---------------------------------------- SIMPLE FUNCTIONS
+-- COUNT(<column name or asterix>)
+-- AVG(<column name>)
+-- SUM(<column name>)
+
+select count(*) from Person.Person
+
+select AVG(ListPrice) from Production.Product
+
+--[Ex. 8.1]
+-- Write a query that will display the average of SalesPerson.SalesYTD
+
+--[Ex. 8.2]
+-- Write a query that will display how many Products have non null product model column value
+
 
 
 

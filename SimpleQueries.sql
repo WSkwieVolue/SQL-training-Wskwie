@@ -71,7 +71,7 @@ select distinct FirstName, MiddleName from Person.Person
 -- Select only the person that was the second best seller (second best SalesYTD)
 
 --[Ex. 3.3]
--- Select all distinct cities from adrressed in schema Person
+-- Select all distinct cities from adrresses in schema Person
 
 ---------------------------------------- INSERTING NEW VALUES
 -- INSERT INTO <schema name>.<table name> (<column names>) values (<values that should be inserted>)

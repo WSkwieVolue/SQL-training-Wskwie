@@ -71,7 +71,8 @@ fetch next 10 rows only
 select distinct FirstName, MiddleName from Person.Person
 
 --[Ex. 3.1]
--- Select a SalesPerson that sold products for the biggest amount of money this year (SalesYTD column)
+-- Select a Person that sold products for the biggest amount of money this year (SalesYTD column)
+-- table: Sales.SalesPerson
 
 --[Ex. 3.2]
 -- Select only the person that was the second best seller (second best SalesYTD)
@@ -103,7 +104,8 @@ values ('QQQ', 'Some currency', '2023-07-20 00:00:00.000'),
 -- table: Person.Address
 
 --[Ex. 4.2]
--- Add new record to Sales.Person but only specify values for column that are non-nullable
+-- Add new record to Person but only specify values for column that are non-nullable
+-- table: Sales.SalesPerson
 
 ---------------------------------------- UPDATING EXISTING VALUES
 -- UPDATE <schema name>.<table name>

@@ -12,12 +12,15 @@ select FirstName as FN, MiddleName as Middle, LastName from Person.Person
 
 -- [Ex. 1.1]
 -- Write a query that will select all departments from schema HumanResources
+-- table: HumanResources.Departments
 
 -- [Ex. 1.2]
 -- Write a query that will select only currency codes from schema sales and table currency
+-- table: Sales.Currency
 
 -- [Ex. 1.3]
 -- Write a query that will select password hash from schema Person but name the column 'Some random letters'
+-- table: Person.Password
 
 ---------------------------------------- SELECT WITH CONDITION
 -- SELECT <column names> FROM <schema name>.<table name> WHERE <Condition>
@@ -32,13 +35,16 @@ select * from Production.Product where ListPrice > 1000 and Color = 'Red'
 
 -- [Ex. 2.1]
 -- Select all people without a middle name
+-- table: Person.Person
 
 -- [Ex. 2.2]
 -- select all products from Product schema with SellStartDate bigger than 2008-04-30 00:00:00.000
+-- table: Product.Product
 
 -- [Ex. 2.3]
 -- select all people with a letter 'h' in their last name. 
 -- Try to use 'like' instead of '=' and '%' as a wildcard for letters before and after the letter 'h'
+-- table: Person.Person
 
 ---------------------------------------- ORDERING AND LIMITING
 -- SELECT TOP <Number> <column names> from [schema name>.<table name> 
@@ -69,9 +75,11 @@ select distinct FirstName, MiddleName from Person.Person
 
 --[Ex. 3.2]
 -- Select only the person that was the second best seller (second best SalesYTD)
+-- table: Sales.SalesPerson
 
 --[Ex. 3.3]
 -- Select all distinct cities from adrresses in schema Person
+-- table: Person.Address
 
 ---------------------------------------- INSERTING NEW VALUES
 -- INSERT INTO <schema name>.<table name> (<column names>) values (<values that should be inserted>)
@@ -92,6 +100,7 @@ values ('QQQ', 'Some currency', '2023-07-20 00:00:00.000'),
 
 --[Ex. 4.1]
 -- Add new value to AddressType with some artificial data
+-- table: Person.Address
 
 --[Ex. 4.2]
 -- Add new record to Sales.Person but only specify values for column that are non-nullable
@@ -112,9 +121,11 @@ where EmailAddressID = 1
 
 -- [Ex. 5.1]
 -- Write a query that will change the description of the new BTC currency to 'Expensive internet money'
+-- table: Sales.Currency
 
 -- [Ex. 5.2]
 -- Write a query that will change the full name of every 'David' to 'Mr. David Bowie Jr.'
+-- table: Person.Person 
 
 ---------------------------------------- DELETING DATA
 -- DELETE FROM <schema name>.<table name>
@@ -128,7 +139,7 @@ where AddressLine1 = 'AddressLine1'
 
 --[Ex 6.1]
 -- Delete all currencies that were added today with insert queries (but do not delete any other currency :] )
-
+-- table: Sales.Currency
 
 ---------------------------------------- JOINING TABLES
 -- SELECT <Column names> from <schema1 name>.<table1 name> <table1 alias>
@@ -150,12 +161,15 @@ right join Production.ProductModel pm on pm.ProductModelID = p.ProductModelID
 
 --[Ex. 7.1]
 -- Write a query that will display names of products that have a review and the content of that opinion
+-- tables: Production.Product, Production.ProductReview
 
 --[Ex. 7.2]
--- Write a query that will display a persons full name and his phone and email address
+-- Write a query that will display a persons full name and his phone and email address (use join two times)
+-- tables: Person.Person, Person.PersonPhone, Person.EmailAddress
 
 --[Ex. 7.3]
 -- Write a query that will display a persons name and his credit card number (use join two times)
+-- tables: Person.Person, Sales.CreditCard, Sales.PersonCreditCard
 
 
 ---------------------------------------- SIMPLE FUNCTIONS
@@ -167,12 +181,17 @@ select count(*) from Person.Person
 
 select AVG(ListPrice) from Production.Product
 
---[Ex. 8.1]
+-- [Ex. 8.1]
 -- Write a query that will display the average of SalesPerson.SalesYTD
+-- table: Sales.SalesPerson
 
---[Ex. 8.2]
+-- [Ex. 8.2]
 -- Write a query that will display how many Products have non null product model column value
+-- table: Production.Product
 
+-- [Ex. 8.3]
+-- Write a query that will display the amount of money needed to but all products
+-- table: Production.Product
 
 
 

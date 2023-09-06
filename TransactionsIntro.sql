@@ -160,11 +160,11 @@ commit
 
 -- [Ex. 3.3] - read committed and non-repeatable reads
 -- 1. Open READCOMMITTED_NONREPREAD_SELECT.sql
--- 1. Open READCOMMITTED_NONREPREAD_UPDATE.sql
--- 2. Execute first part of the first file and observe the [ListPrice] value
--- 3. Execute the whole second file 
--- 4. Execute the remaining part of first file
--- 5. Notice that the exact same query now returns different value of [ListPrice]
+-- 2. Open READCOMMITTED_NONREPREAD_UPDATE.sql
+-- 3. Execute first part of the first file and observe the [ListPrice] value
+-- 4. Execute the whole second file 
+-- 5. Execute the remaining part of first file
+-- 6. Notice that the exact same query now returns different value of [ListPrice]
 
 
 -- [Ex. 3.4] - repeatable read and non-repeatable reads prevented
@@ -180,11 +180,11 @@ SET ALLOW_SNAPSHOT_ISOLATION ON
 
 -- [Ex. 3.5] - repeatable read and phantom reads
 -- 1. Open PHANTOMREADS_NONREPREAD_SELECT.sql
--- 1. Open PHANTOMREADS_NONREPREAD_INSERT.sql
--- 2. Execute first part of the first file and observe that is returned an empty list of records
--- 3. Execute the whole second file 
--- 4. Execute the remaining part of first file
--- 5. Notice that the second time we got a record that have not existed before
+-- 2. Open PHANTOMREADS_NONREPREAD_INSERT.sql
+-- 3. Execute first part of the first file and observe that is returned an empty list of records
+-- 4. Execute the whole second file 
+-- 5. Execute the remaining part of first file
+-- 6. Notice that the second time we got a record that have not existed before
 
 -- [Ex. 3.6] - snapshot and phantom reads prevented
 -- Perform once again the same set of actions but this time use files:
@@ -197,9 +197,17 @@ SET ALLOW_SNAPSHOT_ISOLATION ON
 ------------------- Different order of queries
 
 -- [Ex. 3.7] - snapshot and order of queries
--- 1. Open PHANTOMREADS_NONREPREAD_SELECT.sql
--- 1. Open PHANTOMREADS_NONREPREAD_INSERT.sql
--- 2. Execute first part of the first file and observe that is returned an empty list of records
--- 3. Execute the whole second file 
--- 4. Execute the remaining part of first file
--- 5. Notice that the second time we got a record that have not existed before
+-- 1. Open SERIALIZABLE_QUERYORDER_SELECT.sql
+-- 2. Open SERIALIZABLE_QUERYORDER_UPDATE.sql
+-- 3. Open SERIALIZABLE_QUERYORDER_UPDATE2.sql
+-- 4. Execute whole first file and see how many black and white products we have in the table
+-- 5. Execute first part of SERIALIZABLE_QUERYORDER_UPDATE
+-- 6. Execute first part of SERIALIZABLE_QUERYORDER_UPDATE2
+-- 7. Execute second part of SERIALIZABLE_QUERYORDER_UPDATE and SERIALIZABLE_QUERYORDER_UPDATE2
+-- 8. Once again execute select in SERIALIZABLE_QUERYORDER_SELECT and see that black and white products switched sides.
+-- All previousle black products are now white and vice versa
+
+-- [Ex. 3.8] - serializable
+-- Perform the same actions but with SERIALIZABLE_QUERYORDER_SELECT.sql, SERIALIZABLE_QUERYORDER_UPDATE.sql and SERIALIZABLE_QUERYORDER_UPDATE2.sql
+-- See that now all products are white or black. It depends on the order of executing the transactions. 
+-- The last one executed is the one that will overwrite the previous ones.

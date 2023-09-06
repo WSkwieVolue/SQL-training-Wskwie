@@ -1,0 +1,14 @@
+--NON-REPEATABLE READ EXAMPLE - READ COMMITED - UPDATE
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;  
+GO  
+BEGIN TRANSACTION updateTran;  
+GO  
+
+update Production.Product
+set ListPrice = 4123
+where ProductID = 749
+
+
+COMMIT TRANSACTION updateTran
+

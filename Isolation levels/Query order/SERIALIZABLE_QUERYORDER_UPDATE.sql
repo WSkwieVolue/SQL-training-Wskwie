@@ -1,0 +1,15 @@
+--QUERY ORDER EXAMPLE - SERIALIZABLE - UPDATE
+
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;  
+GO  
+BEGIN TRANSACTION insertTran1;  
+GO  
+
+update Production.Product 
+set Color = 'Black'
+where Color = 'White'
+
+-- END OF PART ONE
+
+COMMIT TRANSACTION insertTran1
+

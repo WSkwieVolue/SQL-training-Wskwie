@@ -1,0 +1,15 @@
+--DIRTY READ EXAMPLE - READ UNCOMMITED - UPDATE
+
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;  
+GO  
+BEGIN TRANSACTION updateTran;  
+GO  
+
+update Sales.Currency
+set Name = 'Some dirty name'
+where CurrencyCode = 'AED' 
+
+-- EXECUTE FIRST THE PART ABOVE
+
+ROLLBACK TRANSACTION updateTran
+

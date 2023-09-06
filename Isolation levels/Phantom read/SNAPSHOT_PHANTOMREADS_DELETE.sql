@@ -1,0 +1,13 @@
+--PHANTOM READ EXAMPLE - SNAPSHOT - DELETE
+
+SET TRANSACTION ISOLATION LEVEL SNAPSHOT;  
+GO  
+BEGIN TRANSACTION insertTran;  
+GO  
+
+delete from Sales.Currency 
+where CurrencyCode like 'W%'
+
+
+COMMIT TRANSACTION insertTran
+

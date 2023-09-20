@@ -18,8 +18,8 @@ where BusinessEntityID = 2
 commit
 
 -- [Ex. 1.1]
--- Write a new transaction that changes MiddleName of people with BusinessId between 1 and 5 to 'Sr' 
--- and changes LastName of people with BusinessId between 7 and 10 to 'Lebowski'
+-- Write a new transaction that changes MiddleName of people with [BusinessEntityId] between 1 and 5 to 'Sr' 
+-- and changes LastName of people with [BusinessEntityId] between 7 and 10 to 'Lebowski'
 -- Table: Person.Person
 
 -- [Ex 1.2]
@@ -28,6 +28,7 @@ commit
 -- 3. Open another file and display the value of MaritalStatus
 -- 4. Write and execute 'commit'
 -- 5. Once again display the value of MaritalStatus
+-- Table: [HumanResources].[Employee]
 
 -- [Ex 1.3]
 -- 1. Write and execute a 'begin tran' query
@@ -35,7 +36,7 @@ commit
 -- 3. Select all product reviews inside the same file
 -- 4. Select all product reviews in new file
 -- 5. Write and execute 'rollback'
--- table: [Production].[ProductReview]
+-- Table: [Production].[ProductReview]
 
 ---------------------------------------- EXAMPLE ERROR
 
@@ -96,7 +97,7 @@ commit transaction tranTwo
 -- Once again open a new file and copy the content of second block
 -- Execute the marked part of first file (see comment in block)
 -- Execute the marked part second file
--- Commit the transaction in second file
+-- Commit the transaction in first file
 -- See the error in the second file. 
 
 --BLOCK ONE START

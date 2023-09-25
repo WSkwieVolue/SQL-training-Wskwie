@@ -1,5 +1,7 @@
 -- Training script by Wojciech Skwierawski for Volue
 
+use AdventureWorks2019
+
 --This script should not be executed as a whole
 RAISERROR ('Oooopsie. This file should not be executed this way ;).',20,-1) with log
 
@@ -170,11 +172,11 @@ commit
 
 -- [Ex. 3.4] - repeatable read and non-repeatable reads prevented
 -- Perform once again the same set of actions but this time use files:
--- NONREPREAD_NONREPREAD_SELECT.sql and NONREPREAD_NONREPREAD_UPDATE.sql
+-- REPREAD_NONREPREAD_SELECT.sql and REPREAD_NONREPREAD_UPDATE.sql
 -- This time the update query should be blocked until the read query finishes execution
 -- Both select queries in the same transaction should return the same values
 
-------------------- Phanton reads
+------------------- Phantom reads
 
 ALTER DATABASE AdventureWorks2019  
 SET ALLOW_SNAPSHOT_ISOLATION ON  
@@ -185,7 +187,7 @@ SET ALLOW_SNAPSHOT_ISOLATION ON
 -- 3. Execute first part of the first file and observe that is returned an empty list of records
 -- 4. Execute the whole second file 
 -- 5. Execute the remaining part of first file
--- 6. Notice that the second time we got a record that have not existed before
+-- 6. Notice that the second time we've got a record that have not existed before
 
 -- [Ex. 3.6] - snapshot and phantom reads prevented
 -- Perform once again the same set of actions but this time use files:
@@ -198,14 +200,14 @@ SET ALLOW_SNAPSHOT_ISOLATION ON
 ------------------- Different order of queries
 
 -- [Ex. 3.7] - snapshot and order of queries
--- 1. Open SERIALIZABLE_QUERYORDER_SELECT.sql
--- 2. Open SERIALIZABLE_QUERYORDER_UPDATE.sql
--- 3. Open SERIALIZABLE_QUERYORDER_UPDATE2.sql
+-- 1. Open SNAPSHOT_QUERYORDER_SELECT.sql
+-- 2. Open SNAPSHOT_QUERYORDER_UPDATE.sql
+-- 3. Open SNAPSHOT_QUERYORDER_UPDATE2.sql
 -- 4. Execute whole first file and see how many black and white products we have in the table
--- 5. Execute first part of SERIALIZABLE_QUERYORDER_UPDATE
--- 6. Execute first part of SERIALIZABLE_QUERYORDER_UPDATE2
--- 7. Execute second part of SERIALIZABLE_QUERYORDER_UPDATE and SERIALIZABLE_QUERYORDER_UPDATE2
--- 8. Once again execute select in SERIALIZABLE_QUERYORDER_SELECT and see that black and white products switched sides.
+-- 5. Execute first part of SNAPSHOT_QUERYORDER_UPDATE
+-- 6. Execute first part of SNAPSHOT_QUERYORDER_UPDATE2
+-- 7. Execute second part of SNAPSHOT_QUERYORDER_UPDATE and SNAPSHOT_QUERYORDER_UPDATE2
+-- 8. Once again execute select in SNAPSHOT_QUERYORDER_SELECT and see that black and white products switched sides.
 -- All previousle black products are now white and vice versa
 
 -- [Ex. 3.8] - serializable

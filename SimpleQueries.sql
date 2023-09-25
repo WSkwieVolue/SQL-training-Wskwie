@@ -1,5 +1,7 @@
 -- Training script by Wojciech Skwierawski for Volue
 
+use AdventureWorks2019
+
 --This script should not be executed as a whole
 RAISERROR ('Oooopsie. This file should not be executed this way ;).',20,-1) with log
 
